@@ -1,5 +1,5 @@
 const myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello World!';
+myHeading.textContent = 'Hi there, ';
 alert('hi there!');
 let myImage = document.querySelector ('img');
 
@@ -12,17 +12,20 @@ myImage.onclick = function() {
     }
 }
 function setUserName() {
-    let myName = prompt('Please enter your name.');
+  let myName = prompt('Please enter your name.');
+  if(!myName) {
+    setUserName()
+  } else {
     localStorage.setItem('name', myName);
-    myHeading.textContent = 'Mozilla is Cool, ' + myName;
+    myHeading.textContent = 'Hi there, ' + myName;
+  }
 }
 let myButton = document.querySelector ('button');
-let myHeading = document.querySelector ('h1');
 if (!localStorage.getItem('name')) {
     setUserName();
 } else { 
     let storedName = localStorage.getItem('name');
-    myHeading.textContent = 'Mozilla is Cool, ' + storedName;
+    myHeading.textContent = 'Hi there, ' + storedName;
 }
 myButton.onclick = function() {
     setUserName();
